@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.name %></title>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <link rel="stylesheet" href="/instagram.css">
+</head>
+<body>
+    <h1>Welcome to Instagram </h1>
+    <h4>This is the Instagram profile of 
+        <%= data.name %>
+    </h4>
+    <div class="buttons">
+        <button id="follow">Follow</button>
+        <button>Message</button>
+    </div>
+    <br>
+    <div class="count">
+        <h3>Followers: <%= data.followers %>  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; Following: <%= data.following %></h3>
+    </div>
+
+    <hr>
+    <%for(post of data.posts){%>
+        <img src="<%=post.image%>" alt="image">
+        <h4>Likes: <%= post.likes %>  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; Comments: <%= post.comments %></h4>
+    <%}%>
+    
+    <%- include("includes/footer.ejs") %>
+    <script src="/instagram.js"></script>
+</body>
+</html>
